@@ -82,3 +82,11 @@ android {
         minSdk = 24
     }
 }
+
+sqldelight {
+    databases {
+        create("TranslateDatabase") {
+            packageName.set("cz.jankotas.translator.database")
+        }
+    }
+}
