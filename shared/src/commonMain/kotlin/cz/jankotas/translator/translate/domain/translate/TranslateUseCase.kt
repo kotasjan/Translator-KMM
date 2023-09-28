@@ -5,7 +5,7 @@ import cz.jankotas.translator.core.domain.util.Resource
 import cz.jankotas.translator.translate.domain.history.HistoryDataSource
 import cz.jankotas.translator.translate.domain.history.HistoryItem
 
-class Translate(
+class TranslateUseCase(
     private val client: TranslateClient,
     private val historyDataSource: HistoryDataSource,
 ) {
