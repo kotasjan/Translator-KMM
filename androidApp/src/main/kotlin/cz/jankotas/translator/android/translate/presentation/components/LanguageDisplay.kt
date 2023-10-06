@@ -1,8 +1,7 @@
 package cz.jankotas.translator.android.translate.presentation.components
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.size
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -19,9 +18,9 @@ fun LanguageDisplay(
     Row(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         SmallLanguageIcon(language = language)
-        Spacer(modifier = Modifier.size(16.dp))
         Text(
             text = language.language.langName,
             color = LightBlue,
