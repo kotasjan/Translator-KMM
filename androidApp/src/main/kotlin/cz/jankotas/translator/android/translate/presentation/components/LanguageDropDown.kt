@@ -20,7 +20,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import cz.jankotas.translator.android.R
+import cz.jankotas.translator.android.core.theme.CustomPreview
 import cz.jankotas.translator.android.core.theme.LightBlue
+import cz.jankotas.translator.android.core.theme.PreviewBox
 import cz.jankotas.translator.core.presentation.UiLanguage
 
 @Composable
@@ -74,5 +76,19 @@ fun LanguageDropDown(
                 modifier = Modifier.size(30.dp),
             )
         }
+    }
+}
+
+@CustomPreview
+@Composable
+fun LanguageDropDownPreview() {
+    PreviewBox {
+        LanguageDropDown(
+            language = UiLanguage.allLanguages.first(),
+            isOpen = false,
+            onClick = {},
+            onDismiss = {},
+            onSelectLanguage = {},
+        )
     }
 }

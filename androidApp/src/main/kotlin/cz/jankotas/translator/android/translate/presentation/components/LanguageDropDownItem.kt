@@ -10,13 +10,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import cz.jankotas.translator.android.core.theme.CustomPreview
+import cz.jankotas.translator.android.core.theme.PreviewBox
 import cz.jankotas.translator.core.presentation.UiLanguage
 
 @Composable
 fun LanguageDropDownItem(
     language: UiLanguage,
     onClick: () -> Unit,
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
 ) {
     DropdownMenuItem(onClick = onClick, modifier = modifier) {
         Image(
@@ -27,6 +29,17 @@ fun LanguageDropDownItem(
         Spacer(modifier = Modifier.width(16.dp))
         Text(
             text = language.language.langName,
+        )
+    }
+}
+
+@CustomPreview
+@Composable
+fun LanguageDropDownItemPreview() {
+    PreviewBox {
+        LanguageDropDownItem(
+            language = UiLanguage.allLanguages.first(),
+            onClick = { },
         )
     }
 }
