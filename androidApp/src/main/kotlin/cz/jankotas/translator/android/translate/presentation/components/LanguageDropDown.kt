@@ -17,6 +17,7 @@ import androidx.compose.material.icons.filled.ArrowDropUp
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import cz.jankotas.translator.android.R
@@ -36,7 +37,7 @@ fun LanguageDropDown(
 ) {
     Box(modifier = modifier) {
         DropdownMenu(expanded = isOpen, onDismissRequest = onDismiss) {
-            UiLanguage.allLanguages.forEach { langugage ->
+            UiLanguage.allLanguages.forEach { language ->
                 LanguageDropDownItem(
                     language = language,
                     onClick = {
@@ -47,7 +48,8 @@ fun LanguageDropDown(
             }
         }
         Row(
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
                 .clickable(onClick = onClick)
                 .padding(16.dp),
         ) {
@@ -58,8 +60,11 @@ fun LanguageDropDown(
             )
             Spacer(modifier = Modifier.width(16.dp))
             Text(
+                modifier = Modifier.weight(1f),
                 text = language.language.langName,
                 color = LightBlue,
+                overflow = TextOverflow.Ellipsis,
+                maxLines = 1,
             )
             Icon(
                 imageVector = if (isOpen) {
@@ -73,7 +78,8 @@ fun LanguageDropDown(
                     stringResource(id = R.string.open)
                 },
                 tint = LightBlue,
-                modifier = Modifier.size(30.dp),
+                modifier = Modifier
+                    .size(30.dp),
             )
         }
     }

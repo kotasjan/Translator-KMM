@@ -33,8 +33,10 @@ fun TranslateScreen(
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween,
                 ) {
                     LanguageDropDown(
+                        modifier = Modifier.weight(1f),
                         language = state.fromLanguage,
                         isOpen = state.isChoosingFromLanguage,
                         onClick = { onEvent(TranslateEvent.OpenFromLanguageDropDown) },
@@ -43,6 +45,7 @@ fun TranslateScreen(
                     )
                     SwapLanguagesButton(onClick = { onEvent(TranslateEvent.SwapLanguages) })
                     LanguageDropDown(
+                        modifier = Modifier.weight(1f),
                         language = state.toLanguage,
                         isOpen = state.isChoosingToLanguage,
                         onClick = { onEvent(TranslateEvent.OpenToLanguageDropDown) },
