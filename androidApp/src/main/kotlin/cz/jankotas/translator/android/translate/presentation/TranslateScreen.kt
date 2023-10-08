@@ -8,21 +8,36 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material.FabPosition
+import androidx.compose.material.FloatingActionButton
+import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.unit.dp
 import cz.jankotas.translator.android.R
+import cz.jankotas.translator.android.core.theme.CustomPreview
+import cz.jankotas.translator.android.core.theme.PreviewBox
 import cz.jankotas.translator.android.translate.presentation.components.LanguageDropDown
 import cz.jankotas.translator.android.translate.presentation.components.SwapLanguagesButton
+import cz.jankotas.translator.android.translate.presentation.components.TranslateHistoryItem
 import cz.jankotas.translator.android.translate.presentation.components.TranslateTextField
 import cz.jankotas.translator.android.translate.presentation.components.rememberTextToSpeech
+import cz.jankotas.translator.core.presentation.UiLanguage
+import cz.jankotas.translator.translate.domain.translate.TranslateError
 import cz.jankotas.translator.translate.presentation.TranslateEvent
 import cz.jankotas.translator.translate.presentation.TranslateState
 import java.util.Locale
@@ -34,7 +49,39 @@ fun TranslateScreen(
     onEvent: (TranslateEvent) -> Unit,
 ) {
     val context = LocalContext.current
-    Scaffold { padding ->
+
+    LaunchedEffect(key1 = state.error) {
+        val message = when (state.error) {
+            TranslateError.ServiceUnavailable -> context.getString(R.string.error_service_unavailable)
+            TranslateError.ServerError -> context.getString(R.string.error_server_error)
+            TranslateError.ClientError -> context.getString(R.string.error_client_error)
+            TranslateError.UnknownError -> context.getString(R.string.error_unknown_error)
+            else -> null
+        }
+
+        message?.let {
+            Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+            onEvent(TranslateEvent.OnErrorSeen)
+        }
+    }
+
+    Scaffold(
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = {
+                    onEvent(TranslateEvent.RecordAudio)
+                },
+                backgroundColor = MaterialTheme.colors.primary,
+                contentColor = MaterialTheme.colors.onPrimary,
+            ) {
+                Icon(
+                    imageVector = ImageVector.vectorResource(id = R.drawable.mic),
+                    contentDescription = stringResource(id = R.string.record_audio),
+                )
+            }
+        },
+        floatingActionButtonPosition = FabPosition.Center,
+    ) { padding ->
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
@@ -115,6 +162,38 @@ fun TranslateScreen(
                     },
                 )
             }
+            item {
+                if (state.history.isNotEmpty()) {
+                    Text(
+                        text = stringResource(id = R.string.history),
+                        style = MaterialTheme.typography.h2,
+                    )
+                }
+            }
+            items(state.history) { item ->
+                TranslateHistoryItem(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    item = item,
+                    onClick = { onEvent(TranslateEvent.SelectHistoryItem(item)) },
+                )
+            }
         }
+    }
+}
+
+@CustomPreview
+@Composable
+fun TranslateScreenPreview() {
+    PreviewBox {
+        TranslateScreen(
+            state = TranslateState(
+                fromText = "Ahoj",
+                fromLanguage = UiLanguage.byCode("cs"),
+                toText = "Hello",
+                toLanguage = UiLanguage.byCode("en"),
+            ),
+            onEvent = {},
+        )
     }
 }
