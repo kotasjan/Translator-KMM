@@ -26,7 +26,7 @@ extension Color {
     static let lightBlueGray = Color(hex: colors.LightBlueGrey)
     static let accentViolet = Color(hex: colors.AccentViolet)
     static let textBlack = Color(hex: colors.TextBlack)
-    static let darkGray = Color(hex: colors.DarkGrey)
+    static let darkGray = Color(hex: colors.DarkGrey)
     
     static let primary = Color(light: .accentViolet, dark: .accentViolet)
     static let background = Color(light: .lightBlueGray, dark: .darkGray)
