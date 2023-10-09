@@ -8,5 +8,6 @@ captures
 .cxx
 local.properties
 xcuserdata
+Pods/
 /shared/src/commonMain/kotlin/cz/jankotas/translator/NetworkConstants.kt
 /iosApp/iosApp.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
