@@ -9,3 +9,4 @@ captures
 local.properties
 xcuserdata
 /shared/src/commonMain/kotlin/cz/jankotas/translator/NetworkConstants.kt
+/iosApp/iosApp.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
