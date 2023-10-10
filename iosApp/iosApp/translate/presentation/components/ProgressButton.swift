@@ -17,7 +17,7 @@ struct ProgressButton: View {
     var body: some View {
         Button(
             action: {
-                if isLoading {
+                if !isLoading {
                     onClick()
                 }
             }
