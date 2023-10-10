@@ -81,9 +81,7 @@ private extension TranslateTextField {
                 }
                 .padding(.trailing)
                 .padding(.bottom)
-                .onAppear {
-                    UITextView.appearance().backgroundColor = .clear
-                }
+                .transparentScrolling()
         }
     }
     
