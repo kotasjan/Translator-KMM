@@ -73,7 +73,7 @@ class AndroidVoiceToTextParser(
     override fun onRmsChanged(rmsDb: Float) {
         _state.update {
             it.copy(
-                powerRation = rmsDb * (1f / (12f - (-2f))),
+                powerRatio = rmsDb * (1f / (12f - (-2f))),
             )
         }
     }
@@ -87,6 +87,9 @@ class AndroidVoiceToTextParser(
     }
 
     override fun onError(code: Int) {
+        if (code == SpeechRecognizer.ERROR_CLIENT) {
+            return
+        }
         _state.update { it.copy(error = "Error $code") }
     }
 
