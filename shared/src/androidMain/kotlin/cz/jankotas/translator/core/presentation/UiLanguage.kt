@@ -5,7 +5,7 @@ import cz.jankotas.translator.R
 import cz.jankotas.translator.core.domain.language.Language
 import java.util.Locale
 
-actual class UiLanguage(
+actual data class UiLanguage(
     @DrawableRes val drawableRes: Int,
     actual val language: Language,
 ) {
