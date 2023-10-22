@@ -58,11 +58,13 @@ dependencies {
 
     implementation(libs.ktor.android)
 
-    androidTestImplementation(libs.test.runner)
-    androidTestImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.androidx.test.rules)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.test.junit)
     debugImplementation(libs.androidx.compose.test.manifest)
+
+    androidTestImplementation(libs.junit)
 
     kspAndroidTest(libs.hilt.android.compiler)
     androidTestImplementation(libs.hilt.testing)
