@@ -1,4 +1,4 @@
-package cz.jankotas.voiceToText.di
+package cz.jankotas.translator.android.voiceToText.di
 
 import android.app.Application
 import cz.jankotas.translator.android.voiceToText.data.AndroidVoiceToTextParser
