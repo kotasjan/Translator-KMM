@@ -14,6 +14,9 @@
 		6E6FA4C02AD41A87005749B3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6FA4BF2AD41A87005749B3 /* Colors.swift */; };
 		6E9412F72AE44952004E674B /* IOSVoiceToTextParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9412F62AE44952004E674B /* IOSVoiceToTextParser.swift */; };
 		6E9412FA2AE46B62004E674B /* IOSVoiceToTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9412F92AE46B62004E674B /* IOSVoiceToTextViewModel.swift */; };
+		6E9412FD2AE46DF6004E674B /* VoiceRecorderDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9412FC2AE46DF6004E674B /* VoiceRecorderDisplay.swift */; };
+		6E9412FF2AE4713C004E674B /* VoiceRecorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9412FE2AE4713C004E674B /* VoiceRecorderButton.swift */; };
+		6E9413012AE47458004E674B /* VoiceToTextScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9413002AE47458004E674B /* VoiceToTextScreen.swift */; };
 		6EF77ACB2AD4B25300C6D584 /* LanguageDropDownItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF77AC82AD4B25300C6D584 /* LanguageDropDownItem.swift */; };
 		6EF77ACC2AD4B25300C6D584 /* SmallLanguageIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF77AC92AD4B25300C6D584 /* SmallLanguageIcon.swift */; };
 		6EF77ACD2AD4B25300C6D584 /* LanguageDropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF77ACA2AD4B25300C6D584 /* LanguageDropdown.swift */; };
@@ -40,6 +43,10 @@
 		6E6FA4BF2AD41A87005749B3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		6E9412F62AE44952004E674B /* IOSVoiceToTextParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSVoiceToTextParser.swift; sourceTree = "<group>"; };
 		6E9412F92AE46B62004E674B /* IOSVoiceToTextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSVoiceToTextViewModel.swift; sourceTree = "<group>"; };
+		6E9412FC2AE46DF6004E674B /* VoiceRecorderDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecorderDisplay.swift; sourceTree = "<group>"; };
+		6E9412FE2AE4713C004E674B /* VoiceRecorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecorderButton.swift; sourceTree = "<group>"; };
+		6E9413002AE47458004E674B /* VoiceToTextScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceToTextScreen.swift; sourceTree = "<group>"; };
+		6E9413022AE48C1D004E674B /* iosApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iosApp.entitlements; sourceTree = "<group>"; };
 		6EF77AC82AD4B25300C6D584 /* LanguageDropDownItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageDropDownItem.swift; sourceTree = "<group>"; };
 		6EF77AC92AD4B25300C6D584 /* SmallLanguageIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallLanguageIcon.swift; sourceTree = "<group>"; };
 		6EF77ACA2AD4B25300C6D584 /* LanguageDropdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageDropdown.swift; sourceTree = "<group>"; };
@@ -109,9 +116,20 @@
 		6E9412F82AE46B40004E674B /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				6E9412FB2AE46DBE004E674B /* components */,
 				6E9412F92AE46B62004E674B /* IOSVoiceToTextViewModel.swift */,
+				6E9413002AE47458004E674B /* VoiceToTextScreen.swift */,
 			);
 			path = presentation;
+			sourceTree = "<group>";
+		};
+		6E9412FB2AE46DBE004E674B /* components */ = {
+			isa = PBXGroup;
+			children = (
+				6E9412FC2AE46DF6004E674B /* VoiceRecorderDisplay.swift */,
+				6E9412FE2AE4713C004E674B /* VoiceRecorderButton.swift */,
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 		6EF77ABF2AD4B16F00C6D584 /* translate */ = {
@@ -187,6 +205,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				6E9413022AE48C1D004E674B /* iosApp.entitlements */,
 				6EF77AE32AE43C8200C6D584 /* voiceToText */,
 				6EF77ABF2AD4B16F00C6D584 /* translate */,
 				6E6FA4BD2AD419FF005749B3 /* core */,
@@ -342,11 +361,13 @@
 			files = (
 				6EF77ADA2AD57F9000C6D584 /* ProgressButton.swift in Sources */,
 				6EF77ACC2AD4B25300C6D584 /* SmallLanguageIcon.swift in Sources */,
+				6E9412FF2AE4713C004E674B /* VoiceRecorderButton.swift in Sources */,
 				6EF77AD62AD57C2200C6D584 /* GradientSurface.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				6EF77AE22AD5DA5800C6D584 /* TransparentScrolling.swift in Sources */,
 				6EF77AD82AD57EB800C6D584 /* LanguageDisplay.swift in Sources */,
 				6EF77ACD2AD4B25300C6D584 /* LanguageDropdown.swift in Sources */,
+				6E9413012AE47458004E674B /* VoiceToTextScreen.swift in Sources */,
 				6EF77AD12AD5458E00C6D584 /* IOSTranslateViewModel.swift in Sources */,
 				6EF77ACB2AD4B25300C6D584 /* LanguageDropDownItem.swift in Sources */,
 				6EF77ACF2AD5430A00C6D584 /* SwapLanguageButton.swift in Sources */,
@@ -355,6 +376,7 @@
 				6EF77AE62AE43CB700C6D584 /* MictrophonePowerObserver.swift in Sources */,
 				6EF77ADE2AD5C92700C6D584 /* TextToSpeech.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				6E9412FD2AE46DF6004E674B /* VoiceRecorderDisplay.swift in Sources */,
 				6EF77AE02AD5CD9400C6D584 /* TranslateHistoryItem.swift in Sources */,
 				6E9412FA2AE46B62004E674B /* IOSVoiceToTextViewModel.swift in Sources */,
 				6EF77ADC2AD584B100C6D584 /* TranslateTextField.swift in Sources */,
@@ -486,6 +508,7 @@
 			baseConfigurationReference = B7780C5341287553717EB849 /* Pods-iosApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iosApp/iosApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
@@ -520,6 +543,7 @@
 			baseConfigurationReference = 5E24EFB72027DD9F06FF3923 /* Pods-iosApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iosApp/iosApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;

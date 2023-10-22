@@ -74,7 +74,7 @@ class IOSVoiceToTextParser: VoiceToTextParser, ObservableObject {
             self?.inputNode = self?.audioEngine?.inputNode
             
             let recordingFormat = self?.inputNode?.outputFormat(forBus: 0)
-            self?.inputNode?.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in
+            self?.inputNode?.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { [weak self] (buffer, _) in
                 self?.audioBufferRequest?.append(buffer)
             }
             
@@ -110,7 +110,6 @@ class IOSVoiceToTextParser: VoiceToTextParser, ObservableObject {
         audioBufferRequest = nil
         
         audioEngine?.stop()
-        audioEngine = nil
         
         inputNode?.removeTap(onBus: 0)
         
