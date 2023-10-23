@@ -9,9 +9,15 @@ import cz.jankotas.translator.translate.domain.history.HistoryDataSource
 import cz.jankotas.translator.translate.domain.translate.TranslateClient
 import cz.jankotas.translator.translate.domain.translate.TranslateUseCase
 
-class AppModule {
+interface AppModule {
+    val historyDataSource: HistoryDataSource
+    val translateClient: TranslateClient
+    val translateUseCase: TranslateUseCase
+}
 
-    val historyDataSource: HistoryDataSource by lazy {
+class AppModuleImpl : AppModule {
+
+    override val historyDataSource: HistoryDataSource by lazy {
         SqlDelightHistoryDataSource(
             TranslateDatabase(
                 DatabaseDriverFactory().create(),
@@ -19,13 +25,13 @@ class AppModule {
         )
     }
 
-    private val translateClient: TranslateClient by lazy {
+    override val translateClient: TranslateClient by lazy {
         KtorTranslateClient(
             HttpClientFactory().create(),
         )
     }
 
-    val translateUseCase: TranslateUseCase by lazy {
+    override val translateUseCase: TranslateUseCase by lazy {
         TranslateUseCase(translateClient, historyDataSource)
     }
 }
