@@ -21,6 +21,7 @@ struct VoiceRecorderButton: View {
                     .padding()
                 icon
                     .foregroundColor(.onPrimary)
+                    .font(.system(size: 40.0))
             }
         }
         .frame(maxWidth: 100.0, maxHeight: 100.0)

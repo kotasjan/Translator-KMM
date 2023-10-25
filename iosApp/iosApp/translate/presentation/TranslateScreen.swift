@@ -108,6 +108,7 @@ struct TranslateScreen: View {
                         Image(uiImage: UIImage(named: "mic")!)
                             .foregroundColor(.onPrimary)
                             .accessibilityIdentifier("Record audio")
+                            .font(.system(size: 40.0))
                     }
                     .frame(maxWidth: 100, maxHeight: 100)
                 }

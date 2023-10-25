@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.FabPosition
@@ -73,10 +74,14 @@ fun TranslateScreen(
                 },
                 backgroundColor = MaterialTheme.colors.primary,
                 contentColor = MaterialTheme.colors.onPrimary,
+                modifier = Modifier
+                    .size(75.dp),
             ) {
                 Icon(
                     imageVector = ImageVector.vectorResource(id = R.drawable.mic),
                     contentDescription = stringResource(id = R.string.record_audio),
+                    modifier = Modifier
+                        .size(50.dp),
                 )
             }
         },
