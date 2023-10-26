@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.sqlDelight) apply false
     alias(libs.plugins.hilt) apply false
     alias(libs.plugins.kotlin.ksp) apply false
+    alias(libs.plugins.moko.resources) apply false
 }
 
 tasks.register("clean", Delete::class) {

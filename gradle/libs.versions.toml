@@ -3,6 +3,8 @@ gradlePlugin = "8.1.1"
 kotlin = "1.9.10"
 ktx = "1.12.0"
 ksp = "1.9.10-1.0.13"
+mokoResources = "0.23.0"
+mokoGraphics = "0.9.0"
 composeCompiler = "1.5.3"
 composeBom = "2023.10.01"
 activityCompose = "1.8.0"
@@ -25,6 +27,7 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 sqlDelight = { id = "app.cash.sqldelight", version.ref = "sqlDelight" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+moko-resources = { id = "dev.icerock.mobile.multiplatform-resources", version.ref = "mokoResources" }
 
 [libraries]
 androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx" }
@@ -39,6 +42,9 @@ androidx-compose-material = { module = "androidx.compose.material:material" }
 androidx-compose-material-icons = { module = "androidx.compose.material:material-icons-extended" }
 
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+
+moko-resources = { module = "dev.icerock.moko:resources", version.ref = "mokoResources" }
+moko-graphics = { module = "dev.icerock.moko:graphics", version.ref = "mokoGraphics" }
 
 coil = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 

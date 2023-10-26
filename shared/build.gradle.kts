@@ -4,6 +4,7 @@ plugins {
     id("com.android.library")
     kotlin("plugin.serialization") version libs.versions.kotlin
     id("app.cash.sqldelight")
+    id("dev.icerock.mobile.multiplatform-resources")
 }
 
 kotlin {
@@ -22,6 +23,8 @@ kotlin {
         framework {
             isStatic = false
             baseName = "shared"
+            export(libs.moko.resources)
+            export(libs.moko.graphics)
         }
     }
 
@@ -34,6 +37,7 @@ kotlin {
                 implementation(libs.sqlDelight.runtime)
                 implementation(libs.sqlDelight.coroutines)
                 implementation(libs.kotlin.datetime)
+                api(libs.moko.resources)
             }
         }
         val commonTest by getting {
@@ -44,6 +48,7 @@ kotlin {
             }
         }
         val androidMain by getting {
+            dependsOn(commonMain)
             dependencies {
                 implementation(libs.ktor.android)
                 implementation(libs.sqlDelight.android.driver)
@@ -82,6 +87,11 @@ android {
     defaultConfig {
         minSdk = 24
     }
+}
+
+multiplatformResources {
+    multiplatformResourcesPackage = "cz.jankotas.translator"
+    multiplatformResourcesClassName = "SharedRes"
 }
 
 sqldelight {
