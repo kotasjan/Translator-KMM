@@ -25,11 +25,13 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.unit.dp
+import cz.jankotas.translator.SharedRes
 import cz.jankotas.translator.android.R
+import cz.jankotas.translator.android.core.presentation.getString
+import cz.jankotas.translator.android.core.presentation.stringResource
 import cz.jankotas.translator.android.core.theme.CustomPreview
 import cz.jankotas.translator.android.core.theme.PreviewBox
 import cz.jankotas.translator.android.translate.presentation.components.LanguageDropDown
@@ -53,10 +55,10 @@ fun TranslateScreen(
 
     LaunchedEffect(key1 = state.error) {
         val message = when (state.error) {
-            TranslateError.ServiceUnavailable -> context.getString(R.string.error_service_unavailable)
-            TranslateError.ServerError -> context.getString(R.string.error_server_error)
-            TranslateError.ClientError -> context.getString(R.string.error_client_error)
-            TranslateError.UnknownError -> context.getString(R.string.error_unknown_error)
+            TranslateError.ServiceUnavailable -> context.getString(id = SharedRes.strings.error_service_unavailable)
+            TranslateError.ServerError -> context.getString(id = SharedRes.strings.error_server_error)
+            TranslateError.ClientError -> context.getString(id = SharedRes.strings.error_client_error)
+            TranslateError.UnknownError -> context.getString(id = SharedRes.strings.error_unknown_error)
             else -> null
         }
 
@@ -79,7 +81,7 @@ fun TranslateScreen(
             ) {
                 Icon(
                     imageVector = ImageVector.vectorResource(id = R.drawable.mic),
-                    contentDescription = stringResource(id = R.string.record_audio),
+                    contentDescription = stringResource(id = SharedRes.strings.record_audio),
                     modifier = Modifier
                         .size(50.dp),
                 )
@@ -146,7 +148,7 @@ fun TranslateScreen(
                         )
                         Toast.makeText(
                             context,
-                            context.getString(R.string.copied_to_clipboard),
+                            context.getString(id = SharedRes.strings.copied_to_clipboard),
                             Toast.LENGTH_LONG,
                         ).show()
                     },
@@ -170,7 +172,7 @@ fun TranslateScreen(
             item {
                 if (state.history.isNotEmpty()) {
                     Text(
-                        text = stringResource(id = R.string.history),
+                        text = stringResource(id = SharedRes.strings.history),
                         style = MaterialTheme.typography.h2,
                     )
                 }

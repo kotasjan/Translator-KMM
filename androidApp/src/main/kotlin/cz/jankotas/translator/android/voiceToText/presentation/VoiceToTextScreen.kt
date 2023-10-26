@@ -24,22 +24,21 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Cancel
 import androidx.compose.material.icons.rounded.Check
 import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material.icons.rounded.Refresh
-import androidx.compose.material.icons.rounded.Stop
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import cz.jankotas.translator.SharedRes
 import cz.jankotas.translator.android.R
+import cz.jankotas.translator.android.core.presentation.stringResource
 import cz.jankotas.translator.android.core.theme.LightBlue
 import cz.jankotas.translator.android.voiceToText.presentation.components.VoiceRecorderDisplay
 import cz.jankotas.translator.voiceToText.presentation.DisplayState
@@ -97,7 +96,7 @@ fun VoiceToTextScreen(
                             DisplayState.Speaking -> {
                                 Icon(
                                     imageVector = Icons.Rounded.Close,
-                                    contentDescription = stringResource(id = R.string.stop_recording),
+                                    contentDescription = stringResource(id = SharedRes.strings.stop_recording),
                                     modifier = Modifier
                                         .size(50.dp),
                                 )
@@ -106,7 +105,7 @@ fun VoiceToTextScreen(
                             DisplayState.DisplayingResults -> {
                                 Icon(
                                     imageVector = Icons.Rounded.Check,
-                                    contentDescription = stringResource(id = R.string.apply),
+                                    contentDescription = stringResource(id = SharedRes.strings.apply),
                                     modifier = Modifier
                                         .size(50.dp),
                                 )
@@ -115,7 +114,7 @@ fun VoiceToTextScreen(
                             else -> {
                                 Icon(
                                     imageVector = ImageVector.vectorResource(R.drawable.mic),
-                                    contentDescription = stringResource(id = R.string.record_audio),
+                                    contentDescription = stringResource(id = SharedRes.strings.record_audio),
                                     modifier = Modifier
                                         .size(50.dp),
                                 )
@@ -129,7 +128,7 @@ fun VoiceToTextScreen(
                     }) {
                         Icon(
                             imageVector = Icons.Rounded.Refresh,
-                            contentDescription = stringResource(id = R.string.record_again),
+                            contentDescription = stringResource(id = SharedRes.strings.record_again),
                             tint = LightBlue,
                         )
                     }
@@ -155,14 +154,14 @@ fun VoiceToTextScreen(
                 ) {
                     Icon(
                         imageVector = Icons.Rounded.Close,
-                        contentDescription = stringResource(id = R.string.close),
+                        contentDescription = stringResource(id = SharedRes.strings.close),
                     )
                 }
                 if (state.displayState == DisplayState.Speaking) {
                     Text(
                         modifier = Modifier
                             .align(Alignment.Center),
-                        text = stringResource(id = R.string.listening),
+                        text = stringResource(id = SharedRes.strings.listening),
                         color = LightBlue,
                     )
                 }
@@ -184,7 +183,7 @@ fun VoiceToTextScreen(
                     when (displayState) {
                         DisplayState.WaitingToTalk -> {
                             Text(
-                                text = stringResource(id = R.string.start_talking),
+                                text = stringResource(id = SharedRes.strings.start_talking),
                                 style = MaterialTheme.typography.h2,
                                 textAlign = TextAlign.Center,
                             )

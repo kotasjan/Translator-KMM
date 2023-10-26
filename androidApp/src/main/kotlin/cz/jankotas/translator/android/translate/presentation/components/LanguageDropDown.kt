@@ -16,11 +16,11 @@ import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.ArrowDropUp
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import cz.jankotas.translator.android.R
+import cz.jankotas.translator.SharedRes
+import cz.jankotas.translator.android.core.presentation.stringResource
 import cz.jankotas.translator.android.core.theme.CustomPreview
 import cz.jankotas.translator.android.core.theme.LightBlue
 import cz.jankotas.translator.android.core.theme.PreviewBox
@@ -73,9 +73,9 @@ fun LanguageDropDown(
                     Icons.Default.ArrowDropDown
                 },
                 contentDescription = if (isOpen) {
-                    stringResource(id = R.string.close)
+                    stringResource(id = SharedRes.strings.close)
                 } else {
-                    stringResource(id = R.string.open)
+                    stringResource(id = SharedRes.strings.open)
                 },
                 tint = LightBlue,
                 modifier = Modifier

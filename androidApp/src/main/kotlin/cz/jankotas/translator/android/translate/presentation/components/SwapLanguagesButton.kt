@@ -9,9 +9,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
+import cz.jankotas.translator.SharedRes
 import cz.jankotas.translator.android.R
+import cz.jankotas.translator.android.core.presentation.stringResource
 import cz.jankotas.translator.android.core.theme.CustomPreview
 import cz.jankotas.translator.android.core.theme.PreviewBox
 
@@ -28,7 +29,7 @@ fun SwapLanguagesButton(
     ) {
         Icon(
             imageVector = ImageVector.vectorResource(id = R.drawable.swap_languages),
-            contentDescription = stringResource(id = R.string.swap_languages),
+            contentDescription = stringResource(id = SharedRes.strings.swap_languages),
             tint = MaterialTheme.colors.onPrimary,
         )
     }

@@ -6,7 +6,8 @@ import android.os.Bundle
 import android.speech.RecognitionListener
 import android.speech.RecognizerIntent
 import android.speech.SpeechRecognizer
-import cz.jankotas.translator.android.R
+import cz.jankotas.translator.SharedRes
+import cz.jankotas.translator.android.core.presentation.getString
 import cz.jankotas.translator.core.domain.util.CommonStateFlow
 import cz.jankotas.translator.core.domain.util.toCommonStateFlow
 import cz.jankotas.translator.voiceToText.domain.VoiceToTextParser
@@ -30,7 +31,7 @@ class AndroidVoiceToTextParser(
         if (!SpeechRecognizer.isRecognitionAvailable(app)) {
             _state.update {
                 it.copy(
-                    error = app.getString(R.string.error_speech_recognition_not_available),
+                    error = app.getString(id = SharedRes.strings.error_speech_recognition_not_available),
                 )
             }
         }
