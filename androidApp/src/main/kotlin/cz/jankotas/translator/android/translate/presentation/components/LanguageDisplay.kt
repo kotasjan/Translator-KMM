@@ -6,8 +6,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
-import cz.jankotas.translator.android.core.theme.LightBlue
+import cz.jankotas.translator.SharedRes
 import cz.jankotas.translator.core.presentation.UiLanguage
 
 @Composable
@@ -23,7 +24,7 @@ fun LanguageDisplay(
         SmallLanguageIcon(language = language)
         Text(
             text = language.language.langName,
-            color = LightBlue,
+            color = colorResource(id = SharedRes.colors.lightBlue.resourceId),
         )
     }
 }

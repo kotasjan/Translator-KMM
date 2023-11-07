@@ -47,6 +47,7 @@ fun ProgressButton(
                 Text(
                     text = text,
                     color = MaterialTheme.colors.onPrimary,
+                    style = MaterialTheme.typography.button,
                 )
             }
         }

@@ -48,5 +48,9 @@
 	<string>Needed to transcibe voice input to text</string>
 	<key>UILaunchScreen</key>
 	<dict/>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+	</array>
 </dict>
 </plist>

@@ -33,13 +33,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import cz.jankotas.translator.SharedRes
 import cz.jankotas.translator.android.R
 import cz.jankotas.translator.android.core.presentation.stringResource
-import cz.jankotas.translator.android.core.theme.LightBlue
 import cz.jankotas.translator.android.voiceToText.presentation.components.VoiceRecorderDisplay
 import cz.jankotas.translator.voiceToText.presentation.DisplayState
 import cz.jankotas.translator.voiceToText.presentation.VoiceToTextEvent
@@ -129,7 +129,7 @@ fun VoiceToTextScreen(
                         Icon(
                             imageVector = Icons.Rounded.Refresh,
                             contentDescription = stringResource(id = SharedRes.strings.record_again),
-                            tint = LightBlue,
+                            tint = colorResource(id = SharedRes.colors.lightBlue.resourceId),
                         )
                     }
                 }
@@ -162,7 +162,7 @@ fun VoiceToTextScreen(
                         modifier = Modifier
                             .align(Alignment.Center),
                         text = stringResource(id = SharedRes.strings.listening),
-                        color = LightBlue,
+                        color = colorResource(id = SharedRes.colors.lightBlue.resourceId),
                     )
                 }
             }

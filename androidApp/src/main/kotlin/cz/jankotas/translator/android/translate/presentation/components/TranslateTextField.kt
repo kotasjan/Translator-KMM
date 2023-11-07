@@ -33,6 +33,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
@@ -40,7 +41,6 @@ import cz.jankotas.translator.SharedRes
 import cz.jankotas.translator.android.R
 import cz.jankotas.translator.android.core.presentation.stringResource
 import cz.jankotas.translator.android.core.theme.CustomPreview
-import cz.jankotas.translator.android.core.theme.LightBlue
 import cz.jankotas.translator.android.core.theme.PreviewBox
 import cz.jankotas.translator.core.presentation.UiLanguage
 
@@ -130,14 +130,14 @@ private fun TranslatedTextField(
                 Icon(
                     imageVector = ImageVector.vectorResource(R.drawable.copy),
                     contentDescription = stringResource(id = SharedRes.strings.copy),
-                    tint = LightBlue,
+                    tint = colorResource(id = SharedRes.colors.lightBlue.resourceId),
                 )
             }
             IconButton(onClick = onCloseClick) {
                 Icon(
                     imageVector = Icons.Rounded.Close,
                     contentDescription = stringResource(id = SharedRes.strings.close),
-                    tint = LightBlue,
+                    tint = colorResource(id = SharedRes.colors.lightBlue.resourceId),
                 )
             }
         }
@@ -159,14 +159,14 @@ private fun TranslatedTextField(
                 Icon(
                     imageVector = ImageVector.vectorResource(R.drawable.copy),
                     contentDescription = stringResource(id = SharedRes.strings.copy),
-                    tint = LightBlue,
+                    tint = colorResource(id = SharedRes.colors.lightBlue.resourceId),
                 )
             }
             IconButton(onClick = onSpeakerClick) {
                 Icon(
                     imageVector = ImageVector.vectorResource(R.drawable.speaker),
                     contentDescription = stringResource(id = SharedRes.strings.play_loud),
-                    tint = LightBlue,
+                    tint = colorResource(id = SharedRes.colors.lightBlue.resourceId),
                 )
             }
         }
@@ -199,7 +199,7 @@ private fun IdleTranslateTextField(
         if (fromText.isEmpty() && !isFocused) {
             Text(
                 text = stringResource(id = SharedRes.strings.enter_a_text_to_translate),
-                color = LightBlue,
+                color = colorResource(id = SharedRes.colors.lightBlue.resourceId),
             )
         }
         ProgressButton(

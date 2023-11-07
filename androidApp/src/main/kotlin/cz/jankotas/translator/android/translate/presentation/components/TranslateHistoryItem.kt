@@ -14,9 +14,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import cz.jankotas.translator.android.core.theme.LightBlue
+import cz.jankotas.translator.SharedRes
 import cz.jankotas.translator.translate.presentation.UiHistoryItem
 
 @Composable
@@ -46,8 +47,8 @@ fun TranslateHistoryItem(
             SmallLanguageIcon(language = item.fromLanguage)
             Text(
                 text = item.fromText,
-                color = LightBlue,
-                style = MaterialTheme.typography.body2,
+                color = colorResource(id = SharedRes.colors.lightBlue.resourceId),
+                style = MaterialTheme.typography.body1,
             )
         }
         Row(

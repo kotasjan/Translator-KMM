@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+
+    <color name="lightBlue">#A8A5BBFF</color>
+    <color name="lightBlueGrey">#F6F4F4FF</color>
+    <color name="accentViolet">#5643C9FF</color>
+    <color name="textBlack">#111111FF</color>
+    <color name="darkGrey">#282C31FF</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="primary">
+        <light>@color/accentViolet</light>
+        <dark>@color/accentViolet</dark>
+    </color>
+
+    <color name="onPrimary">
+        <light>@color/white</light>
+        <dark>@color/white</dark>
+    </color>
+
+    <color name="background">
+        <light>@color/lightBlueGrey</light>
+        <dark>@color/darkGrey</dark>
+    </color>
+
+    <color name="onBackground">
+        <light>@color/textBlack</light>
+        <dark>@color/white</dark>
+    </color>
+
+    <color name="surface">
+        <light>@color/white</light>
+        <dark>@color/darkGrey</dark>
+    </color>
+
+    <color name="onSurface">
+        <light>@color/textBlack</light>
+        <dark>@color/white</dark>
+    </color>
+
+</resources>
