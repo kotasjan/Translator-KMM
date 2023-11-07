@@ -39,7 +39,7 @@ struct VoiceRecorderDisplay: View {
                     ),
                     cornerSize: CGSize(width: 10.0, height: 10.0)
                 )
-                context.fill(path, with: .color(.primaryColor))
+                context.fill(path, with: .color(Shared.colors.primary))
             }
         }
         .gradientSurface()

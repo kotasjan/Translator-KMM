@@ -73,7 +73,7 @@ private extension TranslateTextField {
                     alignment: .topLeading
                 )
                 .padding()
-                .foregroundColor(Color.onSurface)
+                .foregroundColor(Shared.colors.onSurface)
                 .overlay(alignment: .bottomTrailing) {
                     ProgressButton(text: "Translate", isLoading: isTranslating, onClick: {
                         onTranslateEvent(TranslateEvent.Translate())
@@ -98,7 +98,7 @@ private extension TranslateTextField {
             VStack(alignment: .leading) {
                 LanguageDisplay(language: fromLanguage)
                 Text(fromText)
-                    .foregroundColor(.onSurface)
+                    .foregroundColor(Shared.colors.onSurface)
                 HStack {
                     Spacer()
                     Button(action: {
@@ -109,14 +109,14 @@ private extension TranslateTextField {
                     }) {
                         Image(uiImage: UIImage(named: "copy")!)
                             .renderingMode(.template)
-                            .foregroundColor(.lightBlue)
+                            .foregroundColor(Shared.colors.lightBlue)
                         
                     }
                     Button(action: {
                         onTranslateEvent(TranslateEvent.CloseTranslation())
                     }) {
                         Image(systemName: "xmark")
-                            .foregroundColor(.lightBlue)
+                            .foregroundColor(Shared.colors.lightBlue)
                         
                     }
                 }
@@ -125,7 +125,7 @@ private extension TranslateTextField {
                 LanguageDisplay(language: toLanguage)
                     .padding(.bottom)
                 Text(toText)
-                    .foregroundColor(.onSurface)
+                    .foregroundColor(Shared.colors.onSurface)
                 HStack {
                     Spacer()
                     Button(action: {
@@ -136,7 +136,7 @@ private extension TranslateTextField {
                     }) {
                         Image(uiImage: UIImage(named: "copy")!)
                             .renderingMode(.template)
-                            .foregroundColor(.lightBlue)
+                            .foregroundColor(Shared.colors.lightBlue)
                     }
                     Button(action: {
                         tts.speak(
@@ -145,7 +145,7 @@ private extension TranslateTextField {
                         )
                     }) {
                         Image(systemName: "speaker.wave.2")
-                            .foregroundColor(.lightBlue)
+                            .foregroundColor(Shared.colors.lightBlue)
                     }
                 }
             }

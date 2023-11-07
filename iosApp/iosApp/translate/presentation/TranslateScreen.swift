@@ -27,6 +27,8 @@ struct TranslateScreen: View {
     
     var body: some View {
         ZStack {
+            Shared.colors.background
+                .ignoresSafeArea()
             List {
                 HStack(alignment: .center) {
                     LanguageDropdown(
@@ -50,7 +52,7 @@ struct TranslateScreen: View {
                     )
                 }
                 .listRowSeparator(.hidden)
-                .listRowBackground(Color.background)
+                .listRowBackground(Shared.colors.background)
                 
                 TranslateTextField(
                     fromText: Binding(get: {viewModel.state.fromText}, set: { value in
@@ -65,7 +67,7 @@ struct TranslateScreen: View {
                     }
                 )
                 .listRowSeparator(.hidden)
-                .listRowBackground(Color.background)
+                .listRowBackground(Shared.colors.background)
                 
                 if !viewModel.state.history.isEmpty {
                     Text("History")
@@ -73,7 +75,7 @@ struct TranslateScreen: View {
                         .bold()
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .listRowSeparator(.hidden)
-                        .listRowBackground(Color.background)
+                        .listRowBackground(Shared.colors.background)
                 }
                 
                 ForEach(viewModel.state.history, id: \.self.id) { item in
@@ -84,7 +86,7 @@ struct TranslateScreen: View {
                         }
                     )
                     .listRowSeparator(.hidden)
-                    .listRowBackground(Color.background)
+                    .listRowBackground(Shared.colors.background)
                 }
             }
             .listStyle(.plain)
@@ -103,10 +105,10 @@ struct TranslateScreen: View {
                 ) {
                     ZStack {
                         Circle()
-                            .foregroundColor(.primaryColor)
+                            .foregroundColor(Shared.colors.primary)
                             .padding()
                         Image(uiImage: UIImage(named: "mic")!)
-                            .foregroundColor(.onPrimary)
+                            .foregroundColor(Shared.colors.onPrimary)
                             .accessibilityIdentifier("Record audio")
                             .font(.system(size: 40.0))
                     }

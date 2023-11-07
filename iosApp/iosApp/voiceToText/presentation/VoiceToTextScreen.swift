@@ -50,7 +50,7 @@ struct VoiceToTextScreen: View {
                         viewModel.onEvent(event: VoiceToTextEvent.ToggleRecording(languageCode: languageCode))
                     }) {
                         Image(systemName: "arrow.clockwise")
-                            .foregroundColor(.lightBlue)
+                            .foregroundColor(Shared.colors.lightBlue)
                     }
                 }
                 
@@ -63,7 +63,7 @@ struct VoiceToTextScreen: View {
         .onDisappear {
             viewModel.dispose()
         }
-        .background(Color.background)
+        .background(Shared.colors.background)
     }
     
     var mainView: some View {

@@ -30,9 +30,9 @@ struct LanguageDropdown: View {
             HStack {
                 SmallLanguageIcon(language: language)
                 Text(language.language.langName)
-                    .foregroundColor(.lightBlue)
+                    .foregroundColor(Shared.colors.lightBlue)
                 Image(systemName: isOpen ? "chevron.up" : "chevron.down")
-                    .foregroundColor(.lightBlue)
+                    .foregroundColor(Shared.colors.lightBlue)
             }
         }
 

@@ -7,7 +7,7 @@ struct ContentView: View {
     
 	var body: some View {
         ZStack {
-            Color.background
+            Shared.colors.background
                 .ignoresSafeArea()
             TranslateScreen(
                 historyDataSource: appModule.historyDataSource,

@@ -22,7 +22,7 @@ struct LanguageDropDownItem: View {
                         .frame(width: 40, height: 40)
                         .padding(.trailing, 5)
                     Text(language.language.langName)
-                        .foregroundColor(.textBlack)
+                        .foregroundColor(Shared.colors.textBlack)
                 }
             }
         }

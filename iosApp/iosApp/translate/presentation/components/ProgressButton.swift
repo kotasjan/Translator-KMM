@@ -26,7 +26,7 @@ struct ProgressButton: View {
                 ProgressView()
                     .animation(.easeInOut, value: isLoading)
                     .padding(5)
-                    .background(Color.primaryColor)
+                    .background(Shared.colors.primary)
                     .cornerRadius(100)
                     .progressViewStyle(CircularProgressViewStyle(tint: .white))
             } else {
@@ -35,8 +35,8 @@ struct ProgressButton: View {
                     .padding(.horizontal)
                     .padding(.vertical, 5)
                     .font(.body.weight(.bold))
-                    .background(Color.primaryColor)
-                    .foregroundColor(Color.onPrimary)
+                    .background(Shared.colors.primary)
+                    .foregroundColor(Shared.colors.onPrimary)
                     .cornerRadius(100)
             }
         }

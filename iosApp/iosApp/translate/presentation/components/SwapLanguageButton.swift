@@ -15,7 +15,7 @@ struct SwapLanguageButton: View {
          Button(action: onClick){
          Image(uiImage: UIImage(named: "swap_languages")!)
                  .padding()
-                 .background(Color.primaryColor)
+                 .background(Shared.colors.primary)
                  .clipShape(Circle())
          }
      }

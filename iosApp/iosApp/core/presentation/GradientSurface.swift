@@ -14,8 +14,8 @@ struct GradientSurface: ViewModifier {
     
     func body(content: Content) -> some View {
         if colorScheme == .dark {
-            let gradientStart = Color(hex: 0xFF23262E)
-            let gradientEnd = Color(hex: 0xFF212329)
+            let gradientStart = Shared.colors.gradientGreyStart
+            let gradientEnd = Shared.colors.gradientGreyEnd
             content
                 .background(
                     LinearGradient(
@@ -25,7 +25,7 @@ struct GradientSurface: ViewModifier {
                     )
                 )
         } else {
-            content.background(Color.surface)
+            content.background(Shared.colors.surface)
         }
     }
 }

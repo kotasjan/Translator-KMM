@@ -20,7 +20,7 @@ struct TranslateHistoryItem: View {
                     SmallLanguageIcon(language: item.fromLanguage)
                         .padding(.trailing)
                     Text(item.fromText)
-                        .foregroundColor(.lightBlue)
+                        .foregroundColor(Shared.colors.lightBlue)
                         .font(.body)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -30,7 +30,7 @@ struct TranslateHistoryItem: View {
                     SmallLanguageIcon(language: item.toLanguage)
                         .padding(.trailing)
                     Text(item.toText)
-                        .foregroundColor(.onSurface)
+                        .foregroundColor(Shared.colors.onSurface)
                         .font(.body.weight(.semibold))
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)

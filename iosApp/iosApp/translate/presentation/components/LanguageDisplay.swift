@@ -17,7 +17,7 @@ struct LanguageDisplay: View {
             SmallLanguageIcon(language: language)
                 .padding(.trailing, 5)
             Text(language.language.langName)
-                .foregroundColor(.lightBlue)
+                .foregroundColor(Shared.colors.lightBlue)
         }
     }
 }

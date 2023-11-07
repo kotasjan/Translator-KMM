@@ -8,6 +8,9 @@
     <color name="darkGrey">#282C31FF</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="gradientGreyStart">#23262EFF</color>
+    <color name="gradientGreyEnd">#212329FF</color>
+
     <color name="primary">
         <light>@color/accentViolet</light>
         <dark>@color/accentViolet</dark>

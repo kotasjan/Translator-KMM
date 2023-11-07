@@ -17,10 +17,10 @@ struct VoiceRecorderButton: View {
         Button(action: onClick) {
             ZStack {
                 Circle()
-                    .foregroundColor(.primaryColor)
+                    .foregroundColor(Shared.colors.primary)
                     .padding()
                 icon
-                    .foregroundColor(.onPrimary)
+                    .foregroundColor(Shared.colors.onPrimary)
                     .font(.system(size: 40.0))
             }
         }
