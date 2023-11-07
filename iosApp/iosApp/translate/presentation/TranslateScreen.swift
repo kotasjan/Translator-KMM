@@ -27,9 +27,7 @@ struct TranslateScreen: View {
     
     var body: some View {
         ZStack {
-            Shared.colors.background
-                .ignoresSafeArea()
-            List {
+            ScrollView {
                 HStack(alignment: .center) {
                     LanguageDropdown(
                         language: viewModel.state.fromLanguage,
@@ -52,7 +50,7 @@ struct TranslateScreen: View {
                     )
                 }
                 .listRowSeparator(.hidden)
-                .listRowBackground(Shared.colors.background)
+                .padding(.bottom)
                 
                 TranslateTextField(
                     fromText: Binding(get: {viewModel.state.fromText}, set: { value in
@@ -67,7 +65,7 @@ struct TranslateScreen: View {
                     }
                 )
                 .listRowSeparator(.hidden)
-                .listRowBackground(Shared.colors.background)
+                .padding(.bottom)
                 
                 if !viewModel.state.history.isEmpty {
                     Text("History")
@@ -75,22 +73,22 @@ struct TranslateScreen: View {
                         .bold()
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .listRowSeparator(.hidden)
-                        .listRowBackground(Shared.colors.background)
+                        .padding(.bottom)
                 }
-                
+
                 ForEach(viewModel.state.history, id: \.self.id) { item in
                     TranslateHistoryItem(
                         item: item,
+            
                         onClick: {
                             viewModel.onEvent(event: TranslateEvent.SelectHistoryItem(item: item))
                         }
                     )
                     .listRowSeparator(.hidden)
-                    .listRowBackground(Shared.colors.background)
+                    .padding(.bottom)
                 }
             }
-            .listStyle(.plain)
-            .buttonStyle(.plain)
+            .padding()
             
             VStack {
                 Spacer()
