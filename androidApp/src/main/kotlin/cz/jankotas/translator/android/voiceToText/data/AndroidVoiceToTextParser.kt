@@ -26,11 +26,9 @@ class AndroidVoiceToTextParser(
         get() = _state.toCommonStateFlow()
 
     override fun startListening(languageCode: String) {
-        _state.update { VoiceToTextParserState() }
-
         if (!SpeechRecognizer.isRecognitionAvailable(app)) {
             _state.update {
-                it.copy(
+                VoiceToTextParserState(
                     error = app.getString(id = SharedRes.strings.error_speech_recognition_not_available),
                 )
             }
@@ -46,7 +44,7 @@ class AndroidVoiceToTextParser(
         recognizer.setRecognitionListener(this)
         recognizer.startListening(intent)
         _state.update {
-            it.copy(
+            VoiceToTextParserState(
                 isSpeaking = true,
             )
         }
